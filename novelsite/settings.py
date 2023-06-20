@@ -141,7 +141,6 @@ MEDIA_URL = '/covers/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "covers")
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
 ]
 
