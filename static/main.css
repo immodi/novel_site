@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100vw !important;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav-bar {
+    justify-content: center !important;
+}
+
+.novels-total {
+    transform-origin: center;
+    width: 200px;
+    height: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 45vw;
+    margin-bottom: 2rem;
+    transform: translate(-50%, 0); 
+    bottom: -2.5vh;
+}
+
+
+.page-number {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1px;
+    margin-right: 1px;
+    width: 30px;
+    height: inherit;
+    background-color: #0e0e14;
+    color: #acacac;
+}
+
+.page-number.selected {
+    background-color: #dfdfdf;
+}

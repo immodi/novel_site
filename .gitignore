@@ -1,0 +1,12 @@
+*.pyc
+__pycache__
+/env
+data/
+home/
+scan/
+novels/
+*.env
+.vscode
+*db.sqlite3
+*start.cmd
+static/main_backup.css
