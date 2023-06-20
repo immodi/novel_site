@@ -1,0 +1,269 @@
+.novel-item {
+    margin-bottom: 110px;
+}
+
+.novel-name {
+    width: 150px;
+}
+
+
+@media screen and (min-device-width: 761px) and (max-device-width: 1000px) {
+    main {
+        height: 395vh !important;
+    }
+
+    section {
+        height: 95%;
+    }
+
+    .novels-list {
+        left: 15%;
+    }
+
+    .novel-name {
+        width: 130px;
+    }
+}
+
+@media screen and (min-device-width: 700px) and (max-device-width: 760px) {
+    main {
+        height: 585vh !important;
+    }
+    
+    .hot-novels {
+        height: 95%;
+    }
+
+    .novels-list {
+        top: 2%;
+    }
+
+    .novels-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .novel-item {
+        margin-bottom: 120px;
+        margin-right: 50px;
+        left: 3%;
+    }
+
+    .novel-cover {
+        width: 160px;
+        height: 220px;
+    }
+
+    .novel-name {
+        width: 150px;
+        font-size: 1rem;
+    }
+
+    .novel-chapter-no {
+        font-size: 0.8rem;
+    }   
+}
+
+@media screen and (min-device-width: 651px) and (max-device-width: 699px) {
+    main {
+        height: 570vh !important;
+    }
+    
+    .hot-novels {
+        height: 95%;
+    }
+
+    .novels-list {
+        top: 2%;
+    }
+
+    .novel-item {
+        margin-bottom: 50px;
+        margin-right: 90px;
+        left: -5%;
+    }
+
+    .novel-cover {
+        width: 160px;
+        height: 220px;
+    }
+
+    .novel-name {
+        width: 150px;
+        font-size: 1rem;
+    }
+
+    .novel-chapter-no {
+        font-size: 0.8rem;
+    }   
+}
+
+@media screen and (min-device-width: 581px) and (max-device-width: 650px) {
+    main {
+        height: 570vh !important;
+    }
+    
+    .hot-novels {
+        height: 95%;
+    }
+
+    .novels-list {
+        top: 2%;
+    }
+
+    .novel-item {
+        margin-bottom: 50px;
+        margin-right: 90px;
+    }
+
+    .novel-cover {
+        width: 160px;
+        height: 220px;
+    }
+
+    .novel-name {
+        width: 150px;
+        font-size: 1rem;
+    }
+
+    .novel-chapter-no {
+        font-size: 0.8rem;
+    }   
+}
+
+@media screen and (min-device-width: 501px) and (max-device-width: 580px) {
+    main {
+        height: 570vh !important;
+    }
+    
+    .hot-novels {
+        height: 95%;
+    }
+
+    .novels-list {
+        top: 2%;
+    }
+
+    .novel-item {
+        margin-bottom: 50px;
+        margin-right: 50px;
+    }
+
+    .novel-cover {
+        width: 160px;
+        height: 220px;
+    }
+
+    .novel-name {
+        width: 150px;
+        font-size: 1rem;
+    }
+
+    .novel-chapter-no {
+        font-size: 0.8rem;
+    }   
+}
+
+@media screen and (min-device-width: 481px) and (max-device-width: 500px) {
+    main {
+        height: 565vh !important;
+    }
+    
+    .hot-novels {
+        height: 95%;
+    }
+
+    .novel-item {
+        margin-bottom: 50px;
+        margin-right: -90px;
+    }
+
+    .novel-cover {
+        width: 160px;
+        height: 220px;
+    }
+
+    .novel-name {
+        width: 150px;
+        font-size: 1rem;
+    }
+
+    .novel-chapter-no {
+        font-size: 0.8rem;
+    }
+}
+   
+@media screen and (min-device-width: 451px) and (max-device-width: 480px) { 
+    main {
+        height: 440vh !important;
+    }
+
+    .novel-item {
+        margin-bottom: 15px;
+        margin-right: 40px;
+    }
+
+    .novel-name {
+        width: 125px;
+    }
+}
+
+@media screen and (min-device-width: 395px) and (max-device-width: 450px) {
+    main {
+        height: 440vh !important;
+    }
+
+    .novel-item {
+        margin-bottom: 15px;
+    }
+
+    .novel-name {
+        width: 125px;
+    }
+    
+}
+
+@media screen and (min-device-width: 331px) and (max-device-width: 394px) {
+    main {
+        height: 365vh !important;
+    }
+
+    .novels-list {
+        left: 5vw;
+    }
+
+    .novel-name {
+        width: 100px;
+    }
+
+    .novel-chapter-no {
+        left: 12%;
+    }
+
+    .novel-item {
+        margin-bottom: -20px !important;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-device-width: 330px) {
+    main {
+        height: 380vh !important;
+    }
+
+    .novels-list {
+        left: 2%;
+    }
+
+    .novel-name {
+        width: 100px;
+    }
+
+    .novel-chapter-no {
+        left: 10%;
+    }
+
+    .novel-item {
+        margin-bottom: -20px !important;
+        margin-right: 10px;
+    }
+}

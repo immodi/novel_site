@@ -2,9 +2,7 @@
 __pycache__
 /env
 data/
-home/
 scan/
-novels/
 *.env
 .vscode
 *db.sqlite3

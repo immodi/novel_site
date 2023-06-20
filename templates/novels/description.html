@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{name}}{% endblock title %}
+{% block css %}
+{% comment %} <link rel="stylesheet" href="{% static 'novels/css/description.css' %}"> {% endcomment %}
+{% endblock css %}
+{% block content %}
+<section class="novels">
+    <div class="name">{{name}}</div>
+    <div class="novel-card">
+        <img src="{{cover}}" alt="novel cover" class="novel-cover-big">
+        <div class="novel-info">
+            <div class="info-item chapters"><span class="info-header">Chapters</span>: {{chapters}}</div>
+            <div class="info-item author"><span class="info-header">Author</span>: {{author}} </div>
+            <div class="info-item status"><span class="info-header">Status</span>: {{state}} </div>
+            <div class="info-item views"><span class="info-header">Views</span>: {{views}}</div>
+            <div class="info-item rating"><span class="info-header">Rating</span>: {{rating}}/5</div>
+            <div class="info-item categories">
+                <span class="info-header">Categories:</span>
+                <ul class="categories-list" id="categories-list">
+                    {% for categorie in categories %}
+                    <li class="categorie">{{categorie}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="header-links">
+                <a href="{{first_chapter}}" class="info-chapter-link">First Chapter</a>
+                <a href="{{last_chapter}}" class="info-chapter-link">Last Chapter</a>
+            </div>
+        </div>
+    </div>
+    <hr class="line line-first">
+    <div class="novel-summary">
+        <span class="summary-span">Summary</span> 
+        <div class="summary-description" id="style-1">{{summary}}</div>
+        <hr class="line line-summary">
+        <div class="tags">
+            <span class="tags-span">Tags</span>
+            <ul class="tags-list" id="style-1">
+                {% for tag in tags %}
+                <li class="tag">{{tag}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <hr class="line-tags">
+        <span class="chapters-span">Chapters</span>
+        <div class="chapters-container" id="style-1">
+            <ul class="chapters-list">
+                {% for chapter_name in chapter_names %}
+                <a class="chapter" href="{% url 'novel' %}/novel_name={{ name }}/chapter={{ forloop.counter }}">{{chapter_name}}</a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+<script src="{% static 'novels/js/description.js' %}"></script>
+{% endblock content %}

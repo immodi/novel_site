@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Novels{% endblock title %}
+{% block css %}
+{% comment %} <link rel="stylesheet" href="{% static 'novels/css/main.css' %}"> {% endcomment %}
+{% endblock css %}
+{% block content %}
+<section class="hot-novels section-home relative left-1">
+    <h1 class="text-2xl mb-1 mt-1">All Novels</h1>
+    <br>
+    <ul class="novels-list grid grid-cols-3 grid-rows-3 mb-5">
+        {% for novel in novels %}
+        <li class="novel-item w-3/4 mt-4 mb-4">
+            <a href="{% url 'novel' %}?novel_name={{ novel.name }}" class="novel-item">
+                <img src="{{novel.cover_url}}" class="novel-cover w-32 h-38 rounded-sm relative left-0">
+                <div class="novel-description">
+                    <p class="novel-name text-sm mt-4 mb-1 font-medium relative left-0">{{novel.name}}</p>
+                    <p class="novel-chapter-no text-xs relative font-medium left-0">{{novel.chapters}} Chapters</p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <ul class="novels-total top-5">
+        {% for i in total_pages %}
+        <a href="{% url 'novels' %}/{{ i }}" class="page-number">{{i}}</a>
+        {% endfor %}     
+    </ul>
+</section>
+<script src="{% static 'novels/js/main.js' %}"></script>
+{% endblock content %}
