@@ -18,20 +18,20 @@ class NovelsView(TemplateView):
             return
             
         current_page_number -= 1
-        novels = list(NovelModel.objects.all().order_by("name"))
+        novels = list(NovelModel.objects.all().order_by("id"))
 
         # novels_data_extractor()  # Extract database data locally
 
         novels_formated = []
         if (len(novels) / 20).is_integer():
-            pages_number = int(len(novels) / 20)
+            pages_number = int(len(novels) / 21)
         else:
-            pages_number = int(len(novels) / 20) + 1
+            pages_number = int(len(novels) / 21) + 1
 
         pages_array = []
 
         for i in range(pages_number):
-            novels_formated.append(novels[0:20])
+            novels_formated.append(novels[0:21])
             novels = novels[20:]
             pages_array.append(i+1)
         
@@ -48,19 +48,17 @@ class NovelInfoView(TemplateView):
         novel = NovelModel.objects.get(name=novel_name)
         
         novel_chapters = novel.chapters
-        data = novel.data
+        chapter_names = novel.data
         novel.views += 1
         author = novel.info["author"]
         state = novel.info["state"]
-        rating = novel.info["rating"]
-        categories = novel.info["categories"]
+        # rating = novel.info["rating"]
+        # categories = novel.info["categories"]
         tags = novel.info["tags"]
         summary = novel.info["summary"]
-        # import pdb; pdb.set_trace()
 
         novel.save()
 
-        chapter_names = sorted(list(data.keys()), key=lambda s: int(re.search(r'\d+', s).group()))
 
         ctx = {
             "name": novel_name,
@@ -70,8 +68,8 @@ class NovelInfoView(TemplateView):
             "views": novel.views,
             "author": author,
             "state": state,
-            "rating": rating,
-            "categories": categories,
+            # "rating": rating,
+            # "categories": categories,
             "tags": tags,
             "summary": summary,
             "first_chapter": f"/novel/novel_name={novel_name}/chapter=1",

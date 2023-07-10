@@ -4,14 +4,14 @@
 {% block css %}
 {% endblock css %}
 {% block content %}
-<section class="hot-novels section-home relative left-1">
+<section class="hot-novels section-home relative left-1 md:left-28 md:w-screen">
     <h1 class="text-2xl mb-1 mt-1">Hot Novels</h1>
     <ul class="novels-list grid grid-cols-3 grid-rows-3">
         {% for hot in hot_novels %}
         <li class="novel-item w-3/4 mt-4 mb-4">
             <a href="{% url 'novel' %}?novel_name={{ hot.name }}" class="novel-item">
                 <img src="{{hot.cover_url}}" class="novel-cover w-32 h-38 rounded-sm relative left-0">
-                <p class="novel-name text-sm mt-4 mb-1 font-medium relative left-0">{{hot.name}}</p>
+                <p class="novel-name text-xs mt-4 mb-1 font-normal relative left-0">{{hot.name}}</p>
                 <p class="novel-chapter-no text-xs relative font-medium left-0">Chapters {{hot.chapters}}</p>
             </a>
         </li>
