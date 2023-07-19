@@ -43,22 +43,37 @@ class NovelsView(TemplateView):
 class NovelInfoView(TemplateView):
     template_name = r"novels\description.html"
 
-    def get(self, request):
-        novel_name = request.GET.get("novel_name")
+    def get(self, request, current_page_number=0):
+        novel_name = request.GET.get("novel_name").split('/')[0]
+        try:
+            current_page_number = int(request.GET.get("novel_name").split('/')[1]) - 1
+            if current_page_number < 0:
+                current_page_number = 0
+                pages_array = (1, 2)
+        except Exception:
+            current_page_number = 0
+
         novel = NovelModel.objects.get(name=novel_name)
         
         novel_chapters = novel.chapters
-        chapter_names = novel.data
+        # chapter_names = list(novel.data)[current_page_number*40:][0:40]
+        chapter_names = [(chapter, list(novel.data).index(chapter)+1) for chapter in list(novel.data)[current_page_number*40:]][0:40]
+
         novel.views += 1
         author = novel.info["author"]
         state = novel.info["state"]
-        # rating = novel.info["rating"]
-        # categories = novel.info["categories"]
         tags = novel.info["tags"]
         summary = novel.info["summary"]
-
+        
         novel.save()
-
+        # import pdb; pdb.set_trace()
+        
+        if current_page_number + 1 == int((novel_chapters / 40) + 2) - 1:
+            pages_array = (current_page_number, current_page_number + 1)
+        elif current_page_number == 0:
+            pages_array = (1, 2)
+        else:
+            pages_array = (current_page_number, current_page_number+1, current_page_number + 2)
 
         ctx = {
             "name": novel_name,
@@ -68,13 +83,14 @@ class NovelInfoView(TemplateView):
             "views": novel.views,
             "author": author,
             "state": state,
-            # "rating": rating,
-            # "categories": categories,
             "tags": tags,
             "summary": summary,
             "first_chapter": f"/novel/novel_name={novel_name}/chapter=1",
-            "last_chapter": f"/novel/novel_name={novel_name}/chapter={novel_chapters}"
+            "last_chapter": f"/novel/novel_name={novel_name}/chapter={novel_chapters}", 
+            "total_pages": pages_array
+
         }
+
         return render(request, self.template_name, context=ctx)
 
 
@@ -99,7 +115,7 @@ class NovelReaderView(TemplateView):
         max_chapters = novel.chapters
         novel_name = novel.name
         data = novel.data
-        titles_orderd = sorted(list(data.keys()), key=lambda s: int(re.search(r'\d+', s).group()))
+        titles_orderd = list(data.keys())
         content = data[titles_orderd[chapter-1]]
         next_url = url_generator(novel_name, chapter, max_chapters, mode=1)
         previous_url = url_generator(novel_name, chapter, max_chapters, mode=-1)

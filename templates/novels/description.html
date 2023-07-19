@@ -2,56 +2,53 @@
 {% load static %}
 {% block title %}{{name}}{% endblock title %}
 {% block css %}
-{% comment %} <link rel="stylesheet" href="{% static 'novels/css/description.css' %}"> {% endcomment %}
+<link rel="stylesheet" href="{% static 'novels/css/description.css' %}">
 {% endblock css %}
 {% block content %}
-<section class="novels">
-    <div class="name">{{name}}</div>
+<section class="novels bg-slate-700 rounded w-11/12 relative p-5">
     <div class="novel-card">
-        <img src="{{cover}}" alt="novel cover" class="novel-cover-big">
-        <div class="novel-info">
-            <div class="info-item chapters"><span class="info-header">Chapters</span>: {{chapters}}</div>
-            <div class="info-item author"><span class="info-header">Author</span>: {{author}} </div>
-            <div class="info-item status"><span class="info-header">Status</span>: {{state}} </div>
-            <div class="info-item views"><span class="info-header">Views</span>: {{views}}</div>
-            <div class="info-item rating"><span class="info-header">Rating</span>: {{rating}}/5</div>
-            <div class="info-item categories">
-                <span class="info-header">Categories:</span>
-                <ul class="categories-list" id="categories-list">
-                    {% for categorie in categories %}
-                    <li class="categorie">{{categorie}}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="header-links">
-                <a href="{{first_chapter}}" class="info-chapter-link">First Chapter</a>
-                <a href="{{last_chapter}}" class="info-chapter-link">Last Chapter</a>
-            </div>
+        <span class="name font-mono text-xl relative bottom-2">{{name}}</span>
+        <div class="info flex flex-row items-center top-2 relative">
+            <img src="{{cover}}" alt="novel cover" class="novel-cover-big">
+            <span class="novel-info relative left-5 bottom-2 text-sm leading-loose">
+                <div class="info-item chapters"><span class="info-header">Chapters</span>: {{chapters}}</div>
+                <div class="info-item author"><span class="info-header">Author</span>: {{author}} </div>
+                <div class="info-item status"><span class="info-header">Status</span>: {{state}} </div>
+                <div class="info-item views"><span class="info-header">Views</span>: {{views}}</div>
+                <div class="header-links relative top-2">
+                    <a href="{{first_chapter}}" class="info-chapter-link">First Chapter</a>
+                    <a href="{{last_chapter}}" class="info-chapter-link">Last Chapter</a>
+                </div>
+            </span>
         </div>
     </div>
-    <hr class="line line-first">
+    <hr class="relative mt-10 mb-10">
     <div class="novel-summary">
-        <span class="summary-span">Summary</span> 
-        <div class="summary-description" id="style-1">{{summary}}</div>
-        <hr class="line line-summary">
+        <span class="summary-span relative -top-4 text-xl font-mono">Summary</span> 
+        <div class="summary-description relative -top-2 leading-7">{{summary}}</div>
+        <hr class="relative mt-4 mb-4">
         <div class="tags">
-            <span class="tags-span">Tags</span>
-            <ul class="tags-list" id="style-1">
-                {% for tag in tags %}
-                <li class="tag">{{tag}}</li>
-                {% endfor %}
-            </ul>
+            <span class="tags-span text-xl font-mono relative">Tags: </span>
+            {% for tag in tags %}
+            <span class="tag">{{tag}}</span>
+            {% endfor %}
         </div>
-        <hr class="line-tags">
-        <span class="chapters-span">Chapters</span>
+        <hr class="line-tags mt-4 mb-5">
+        <span class="chapters-span text-xl font-mono relative -top-2">Chapters</span>
         <div class="chapters-container" id="style-1">
-            <ul class="chapters-list">
+            {% comment %} <hr class="w-full h-full absolute"> {% endcomment %}
+            <ul class="chapters-list relative font-extralight w-full min-w-fit bg-slate-800 h-fit rounded-lg p-4 grid grid-cols-3 grid-rows-4 col-end-11 place-items-start">
                 {% for chapter_name in chapter_names %}
-                <a class="chapter" href="{% url 'novel' %}/novel_name={{ name }}/chapter={{ forloop.counter }}">{{chapter_name}}</a>
+                <a class="chapter m-1 text-sm" href="{% url 'novel' %}novel_name={{ name }}/chapter={{ chapter_name.1 }}">{{chapter_name.0}}</a>
                 {% endfor %}
             </ul>
         </div>
     </div>
+    <ul class="novels-total w-full min-w-full bg-slate-700">
+        {% for i in total_pages %}
+        <a href="{% url 'novel' %}?novel_name={{ name }}/{{i}}" class="page-number">{{i}}</a>
+        {% endfor %}     
+    </ul>
 </section>
-<script src="{% static 'novels/js/description.js' %}"></script>
+{% comment %} <script src="{% static 'novels/js/description.js' %}"></script> {% endcomment %}
 {% endblock content %}

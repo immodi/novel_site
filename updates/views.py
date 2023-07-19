@@ -21,7 +21,7 @@ class UpdatesView(TemplateView):
         for z in datetime_format:
             latest_novels.append(z[1])
             
-        latest_novels = latest_novels[0:20]
+        latest_novels = latest_novels[0:21]
         
         ctx = {
             "latest_novels": latest_novels,
