@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from novels.models import NovelModel
-from novelsite import settings
-import re
+
 
 class NovelsView(TemplateView):
     template_name = r"novels\index.html"

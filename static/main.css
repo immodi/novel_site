@@ -41,7 +41,7 @@ body {
     margin-right: 1px;
     width: 30px;
     height: inherit;
-    background-color: rgb(30 41 59);
+    background-color: rgb(20, 27, 39);
     color: #acacac;
     transition: all ease-out 200ms;
 }
