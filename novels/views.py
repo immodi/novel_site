@@ -43,9 +43,10 @@ class NovelInfoView(TemplateView):
     template_name = r"novels\description.html"
 
     def get(self, request, current_page_number=0):
-        novel_name = request.GET.get("novel_name").split('/')[0]
+        request_link = request.GET.get("novel_name").split('/')
+        novel_name = request_link[0]
         try:
-            current_page_number = int(request.GET.get("novel_name").split('/')[1]) - 1
+            current_page_number = int(request_link[1]) - 1
             if current_page_number < 0:
                 current_page_number = 0
                 pages_array = (1, 2)
@@ -53,10 +54,10 @@ class NovelInfoView(TemplateView):
             current_page_number = 0
 
         novel = NovelModel.objects.get(name=novel_name)
-        
+        data = list(novel.data)
         novel_chapters = novel.chapters
         # chapter_names = list(novel.data)[current_page_number*40:][0:40]
-        chapter_names = [(chapter, list(novel.data).index(chapter)+1) for chapter in list(novel.data)[current_page_number*40:]][0:40]
+        chapter_names = [(chapter, data.index(chapter)+1) for chapter in data[current_page_number*40:]][0:40]
 
         novel.views += 1
         author = novel.info["author"]
