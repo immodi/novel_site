@@ -2,15 +2,16 @@
 {% load static %}
 {% block title %}{{name}}{% endblock title %}
 {% block css %}
-{% comment %} <link rel="stylesheet" href="{% static 'novels/css/reader.css' %}"> {% endcomment %}
+<link rel="stylesheet" href="{% static 'novels/css/reader.css' %}">
 {% endblock css %}
 {% block content %}
-<div class="chapter-content">
-    <div class="chapter-number">[{{chapter}}]</div>
+<div class="chapter-content flex content-start items-start flex-col">
+    <div class="chapter-number relative left-1">[{{chapter}}]</div>
     {% for para in content %}
-    <p class="para">{{para}}</p>
+    <p class="para leading-loose w-11/12 relative left-1">{{para}}</p>
+    <br>
     {% endfor %}
-    <div class="chapter-buttons">
+    <div class="chapter-buttons relative self-center right-3">
         <a href="{{previous_url}}" class="chapter-button">Previous Chapter</a>
         <a href="{{home_url}}" class="chapter-button">Home</a>
         <a href="{{next_url}}" class="chapter-button">Next Chapter</a>

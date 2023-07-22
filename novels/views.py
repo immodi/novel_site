@@ -56,8 +56,8 @@ class NovelInfoView(TemplateView):
         novel = NovelModel.objects.get(name=novel_name)
         data = list(novel.data)
         novel_chapters = novel.chapters
-        # chapter_names = list(novel.data)[current_page_number*40:][0:40]
-        chapter_names = [(chapter, data.index(chapter)+1) for chapter in data[current_page_number*40:]][0:40]
+        # chapter_names = list(novel.data)[current_page_number*42:][0:42]
+        chapter_names = [(chapter, data.index(chapter)+1) for chapter in data[current_page_number*42:]][0:42]
 
         novel.views += 1
         author = novel.info["author"]
@@ -68,7 +68,7 @@ class NovelInfoView(TemplateView):
         novel.save()
         # import pdb; pdb.set_trace()
         
-        if current_page_number + 1 == int((novel_chapters / 40) + 2) - 1:
+        if current_page_number + 1 == int((novel_chapters / 42) + 2) - 1:
             pages_array = (current_page_number, current_page_number + 1)
         elif current_page_number == 0:
             pages_array = (1, 2)

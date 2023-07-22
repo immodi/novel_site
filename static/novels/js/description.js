@@ -1,24 +1,12 @@
-// const pageNumbersList = document.querySelector(".novels-total")
-// const pageNumbersArray = Array.from(pageNumbersList.children)
-// let currentPageNumberRightIndex = 2
+const currentUrl = window.location.href
+const currentPageNumber = parseInt(currentUrl.slice(currentUrl.length - 1, currentUrl.length))
 
-// localStorage.clear()
-// pageNumbersArray.forEach((num) => {num.style.display = 'none'})
-// pageNumbersArray[parseInt(localStorage.getItem("firstIndex")) || 0].style.display = 'flex'
-// pageNumbersArray[parseInt(localStorage.getItem("secondIndex")) || 1].style.display = 'flex'
+let currentPageNumberInList = Array.from(document.querySelector(".novels-total").children)
 
-// function moveRight() {
-//     try {
-//         pageNumbersArray[currentPageNumberRightIndex].style.display = 'flex'
-//         pageNumbersArray[currentPageNumberRightIndex - 2].style.display = 'none'
-//         currentPageNumberRightIndex++
-//         savePageNumState(currentPageNumberRightIndex-2, currentPageNumberRightIndex-1)
-//     } catch (error) {
-//         return
-//     }
-// }
+if (currentPageNumber === 1) {
+    currentPageNumberInList = currentPageNumberInList[0]
+} else {
+    currentPageNumberInList = currentPageNumberInList[1]
+}
 
-// function savePageNumState(leftIndex, rightIndex) {
-//     localStorage.setItem("firstIndex", leftIndex)
-//     localStorage.setItem("secondIndex", rightIndex)
-// }
+currentPageNumberInList.classList.toggle("selected")
