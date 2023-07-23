@@ -1077,6 +1077,12 @@ select {
   transition-duration: 150ms;
 }
 
+@media (min-width: 640px) {
+  .sm\:left-2 {
+    left: 0.5rem;
+  }
+}
+
 @media (min-width: 768px) {
   .md\:left-14 {
     left: 3.5rem;
