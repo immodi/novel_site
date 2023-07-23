@@ -20,7 +20,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('', include("home.urls")),
+    path('', include("home.urls", namespace='home')),
     path('', include("scan.urls")),
     path('', include("novels.urls")),
     path('', include("updates.urls")),

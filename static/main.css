@@ -55,6 +55,17 @@ body {
     height: 2.1rem;
 }
 
+.footer-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-link:hover {
+    color: #acacac;
+}
+
 @media (min-width: 768px){
     .md\:w-screen {
         width: 105vw;
@@ -64,4 +75,3 @@ body {
         left: 5rem;
     }
 }
-

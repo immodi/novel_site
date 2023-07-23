@@ -18,3 +18,24 @@ class HomeView(TemplateView):
         }
         return render(request, self.template_name, context=ctx)
 
+
+class PrivacyView(TemplateView):
+    template_name = "home\privacy.html"
+    
+    def get(self, request):
+        return render(request, self.template_name)
+
+
+class DmcaView(TemplateView):
+    template_name = "home\dmca.html"
+    
+    def get(self, request):
+        return render(request, self.template_name)
+
+
+class TosView(TemplateView):
+    template_name = "home\\tos.html"
+    
+    def get(self, request):
+        return render(request, self.template_name)
+

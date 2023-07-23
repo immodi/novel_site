@@ -1,0 +1,13 @@
+p {
+    margin-bottom: 1rem;
+}
+
+ol, ul {
+    list-style: circle;
+    list-style-position: inside;
+}
+
+
+.tos-li-item {
+    margin-bottom: 1rem;
+}
