@@ -87,7 +87,8 @@ class NovelInfoView(TemplateView):
             "summary": summary,
             "first_chapter": f"/novel/novel_name={novel_name}/chapter=1",
             "last_chapter": f"/novel/novel_name={novel_name}/chapter={novel_chapters}", 
-            "total_pages": pages_array
+            "total_pages": pages_array,
+            "max_page_number": int((novel_chapters / 42) + 2) - 1,
 
         }
 

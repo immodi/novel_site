@@ -4,9 +4,9 @@ const currentPageNumber = parseInt(currentUrl.slice(currentUrl.length - 1, curre
 let currentPageNumberInList = Array.from(document.querySelector(".novels-total").children)
 
 if (currentPageNumber === 1 || isNaN(currentPageNumber)) {
-    currentPageNumberInList = currentPageNumberInList[0]
-} else {
     currentPageNumberInList = currentPageNumberInList[1]
+} else {
+    currentPageNumberInList = currentPageNumberInList[2]
 }
 
 currentPageNumberInList.classList.toggle("selected")

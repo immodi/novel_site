@@ -27,6 +27,12 @@
     background-color: rgb(30 41 59);
 }
 
+.page-number-text {
+    border-radius: 0.2rem;
+    padding: 0.3rem;
+    background-color: rgb(30 41 59);
+}
+
 .page-number.selected {
     background-color: #acacac;
     color: rgb(30, 41, 59);

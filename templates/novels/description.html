@@ -44,9 +44,11 @@
             </ul>
         </div>
         <ul class="novels-total w-full min-w-full bg-slate-700 absolute">
+            <a href="{% url 'novel' %}?novel_name={{ name }}" class="page-number-text relative right-2">First Page</a>
             {% for i in total_pages %}
             <a href="{% url 'novel' %}?novel_name={{ name }}/{{i}}" class="page-number">{{i}}</a>
             {% endfor %}     
+            <a href="{% url 'novel' %}?novel_name={{ name }}/{{max_page_number}}" class="page-number-text relative left-2">Last Page</a>
         </ul>
     </div>
     
