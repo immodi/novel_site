@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Novels{% endblock title %}
 {% block css %}
-{% comment %} <link rel="stylesheet" href="{% static 'novels/css/main.css' %}"> {% endcomment %}
+<link rel="stylesheet" href="{% static 'novels/css/main.css' %}">
 {% endblock css %}
 {% block content %}
 <section class="hot-novels section-home relative left-1 md:left-28 md:w-screen">
@@ -21,11 +21,17 @@
         </li>
         {% endfor %}
     </ul>
-    <ul class="novels-total top-5">
-        {% for i in total_pages %}
-        <a href="{% url 'novels' %}/{{ i }}" class="page-number">{{i}}</a>
-        {% endfor %}     
-    </ul>
 </section>
+<ul class="novels-total w-full min-w-full self-center relative flex justify-center items-center content-center">
+    {% comment %} {% for i in total_pages %}
+    <a href="{% url 'novels' %}/{{ i }}" class="page-number">{{i}}</a>
+    {% endfor %} {% endcomment %}
+
+    <a href="{% url 'novels' %}/{{ 1 }}" class="page-number-text relative right-2">First Page</a>
+    {% for i in total_pages %}
+    <a href="{% url 'novels' %}/{{ i }}" class="page-number">{{i}}</a>
+    {% endfor %}     
+    <a href="{% url 'novels' %}/{{ max_novels_page_number }}" class="page-number-text relative left-2">Last Page</a>
+</ul>
 <script src="{% static 'novels/js/main.js' %}"></script>
 {% endblock content %}

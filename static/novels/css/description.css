@@ -31,6 +31,12 @@
     border-radius: 0.2rem;
     padding: 0.3rem;
     background-color: rgb(30 41 59);
+    transition: all ease 100ms;
+
+}
+
+.page-number-text:hover {
+    background: rgb(24, 32, 46);
 }
 
 .page-number.selected {

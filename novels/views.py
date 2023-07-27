@@ -36,7 +36,7 @@ class NovelsView(TemplateView):
         
         
         # import pdb; pdb.set_trace()
-        return render(request, self.template_name, context={"novels": novels_formated[current_page_number], "total_pages": pages_array,})
+        return render(request, self.template_name, context={"novels": novels_formated[current_page_number], "total_pages": pages_array, "max_novels_page_number": pages_number})
         
 
 class NovelInfoView(TemplateView):
