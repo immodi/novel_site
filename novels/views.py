@@ -27,12 +27,20 @@ class NovelsView(TemplateView):
         else:
             pages_number = int(len(novels) / 21) + 1
 
-        pages_array = []
+        pages_array = (1, 2)
 
+        if current_page_number == pages_number-1:
+            pages_array = (current_page_number, current_page_number + 1)
+        elif current_page_number == 0:
+            pages_array = (1, 2)
+        else:
+            pages_array = (current_page_number, current_page_number+1, current_page_number + 2)
+
+        # import pdb; pdb.set_trace()
         for i in range(pages_number):
             novels_formated.append(novels[0:21])
             novels = novels[20:]
-            pages_array.append(i+1)
+            # pages_array.append(i+1)
         
         
         # import pdb; pdb.set_trace()

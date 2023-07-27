@@ -1,35 +1,34 @@
-window.scrollTo(0, 0)
+const currentUrl = window.location.href
+const currentPageNumber = parseInt(currentUrl.split("/")[4])
 
-let navWrapper = document.querySelector(".nav-wrapper")
-let novelsTotal = document.querySelector(".novels-total")
-let pageNumbers = document.querySelectorAll(".page-number")
-let covers = [...document.querySelectorAll(".novel-cover")]
-let main = document.querySelector("main")
+let currentPageNumberInList = Array.from(document.querySelector(".novels-total").children)
 
-let lastCoverLeft = covers[2].getBoundingClientRect().left 
-let coverHeight = covers[2].getBoundingClientRect().height 
-let lastCoverTop = covers[2].getBoundingClientRect().top 
-
-// novelsTotal.style.width = `${pageNumbers.length * 30}px`
-// navWrapper.style.width = (lastCoverLeft + coverHeight + 50) + "px"
-// main.style.width = (lastCoverLeft + coverHeight + 50) + "px"
-// main.style.height = (covers[covers.length-1].getBoundingClientRect().top + coverHeight + 200) + "px"
-
-if (isNumeric(window.location.href.slice(-1))) {
-    pageNumbers[window.location.href.slice(-1) - 1].classList.toggle("selected")
+if (currentPageNumber === 1 || isNaN(currentPageNumber)) {
+    currentPageNumberInList = currentPageNumberInList[1]
 } else {
-    pageNumbers[0].classList.toggle("selected")
+    currentPageNumberInList = currentPageNumberInList[2]
 }
 
-// if (window.innerWidth >= 1200) {
-//     navWrapper.style.width = "100vw"
-//     main.style.width = "100vw"
-//     main.style.height = "315vh"
-// } 
-// else if (window.innerWidth < 695 && parseInt(pageNumbers[pageNumbers.length-1].innerHTML) == parseInt(window.location.href.slice(-1))) {
-//     main.style.height = ((covers[covers.length-1].getBoundingClientRect().top + coverHeight) * 2) + "px"
+currentPageNumberInList.classList.toggle("selected")
+
+
+// window.scrollTo(0, 0)
+
+// let navWrapper = document.querySelector(".nav-wrapper")
+// let novelsTotal = document.querySelector(".novels-total")
+// let pageNumbers = document.querySelectorAll(".page-number")
+// let covers = [...document.querySelectorAll(".novel-cover")]
+// let main = document.querySelector("main")
+
+// let lastCoverLeft = covers[2].getBoundingClientRect().left 
+// let coverHeight = covers[2].getBoundingClientRect().height 
+// let lastCoverTop = covers[2].getBoundingClientRect().top 
+
+// if (isNumeric(window.location.href.slice(-1))) {
+//     pageNumbers[window.location.href.slice(-1) - 1].classList.toggle("selected")
+// } else {
+//     pageNumbers[0].classList.toggle("selected")
 // }
-
-function isNumeric(str){
-    return /^\d+$/.test(str);
-}
+// function isNumeric(str){
+//     return /^\d+$/.test(str);
+// }
