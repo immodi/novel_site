@@ -1,7 +1,3 @@
-.chapter-content {
-    overflow-x: hidden;
-}
-
 .chapter-button {
     font-weight: bold;
     margin-left: 1px;
@@ -23,5 +19,5 @@
 }
 
 .right-2 {
-    right: 0.65rem;
+    right: 0.75rem;
 }
