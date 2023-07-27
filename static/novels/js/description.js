@@ -1,5 +1,5 @@
 const currentUrl = window.location.href
-const currentPageNumber = parseInt(currentUrl.slice(currentUrl.length - 1, currentUrl.length))
+const currentPageNumber = parseInt(currentUrl.split("/")[5])
 
 let currentPageNumberInList = Array.from(document.querySelector(".novels-total").children)
 
