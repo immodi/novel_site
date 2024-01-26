@@ -20,8 +20,6 @@ Before running the project, ensure you have the following installed:
 - SQLite
 - Node.js (for Tailwind CSS)
 
-## Setup Instructions
-
 ## Deployment
 
 To deploy this project run
