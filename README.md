@@ -2,7 +2,7 @@
 # Book Reading Website Project
 
 Book Reading Website Project
-This project is a Book Reading Website built using Django, Tailwind CSS, and SQLite. It provides a platform for users to discover, read, and manage their favorite books. The combination of Django's powerful backend capabilities and Tailwind CSS's flexible styling ensures a seamless and visually appealing user experience.
+This project is a Book Reading Website built using Django, Tailwind CSS, and SQLite. It provides a platform for users to discover, read, and manage their favorite books. The combination of Django's powerful backend capabilities and Tailwind CSS's flexible styling ensures a seamless and visually appealing user experience, you can try the live demo [here](https://modi.pythonanywhere.com/)
 
 ## Features
 
